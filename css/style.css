@@ -59,6 +59,11 @@ header
   background-size: 200px;
 }
 
+.sidebar
+{
+    height: 348px;
+}
+
 .computer_science
 {
   display: block;
@@ -67,19 +72,49 @@ header
 .computer_science a
 {
   display: block;
+  padding-top: 5px;
+  border-bottom: 2px dotted black;
 }
 
-.wrapper
+.underline
 {
-  background-color: #e0e0e0;
-  display: block;
-  height: 300px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 4px dotted black;
+  margin-bottom: 5px;
+}
+
+.left
+{
   width: 60%;
   float: left;
   padding: 5px;
   margin-top: 30px;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.whole
+{
+  width: inherit;
+  float: left;
+  padding: 5px;
+  margin-top: 30px;
+  margin-left: 130px;
+  margin-right: 10px;
+}
+
+.wrapper
+{
+  #background-color: #e0e0e0;
+  display: block;
+  height: auto;
+}
+
+.tab
+{
+  text-indent: 15px;
 }
 
 .portrait
@@ -90,7 +125,10 @@ header
 
 .portrait img
 {
-  width: 100px;
+  width: 550px;
+  border-width: medium;
+  border-style: dotted;
+  border-color: black;
 }
 
 aside
@@ -98,17 +136,18 @@ aside
   margin-top: 30px;
   float: left;
   width: 200px;
-  background-color: #e0e0e0;
+  #background-color: #e0e0e0;
 
 }
 
 .content
 {
-  background-color: #e0e0e0;
+  #background-color: #e0e0e0;
   display: block;
   float: left;
-  margin-top: 5px;
+  margin-top: 30px;
   margin-right: 5px;
+  padding: 5px;
   border-width: medium;
   border-style: dotted;
   border-color: black;
