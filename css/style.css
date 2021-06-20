@@ -161,9 +161,10 @@ aside
   margin-top: 30px;
   margin-right: 5px;
   padding: 5px;
-  border-width: medium;
-  border-style: dotted;
-  border-color: black;
+  border-right: 3px dotted black;
+  border-top: 3px dotted black;
+  border-left: none;
+  border-bottom: none;
 }
 
 .large

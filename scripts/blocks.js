@@ -6,6 +6,9 @@ var objects;
 var box1, box2, box3;
 let nodeSize = 8;
 
+var rotationX = 0.3;
+var rotationY = 0.3;
+var rotationZ = 0.3;
 
 
 function setup() {
@@ -21,11 +24,9 @@ function setup() {
   objects = [box1]
   lightVector = normaliseVector(lightVector);
   //translate3D(250,250,0, nodes);
+  background(backgroundColor);
   let myCanvas = createCanvas(500, 500);
   myCanvas.parent('sketch-holder');
-
-  background(backgroundColor);
-
 
 
 }
@@ -79,20 +80,14 @@ draw = function() {
 
     }
 
-    if(deviceOrientation == PORTRAIT)
+
+    for ( o in objects)
     {
-      for ( o in objects) {
-        rotateX3D(pRotationX/100,objects[o].nodes);
-        rotateY3D(pRotationY/100,objects[o].nodes);
-        rotateZ3D(pRotationZ/100,objects[o].nodes);
-      }
+      rotateX3D(rotationX,objects[o].nodes);
+      rotateY3D(rotationY,objects[o].nodes);
+      rotateZ3D(rotationZ,objects[o].nodes);
     }
-    else
-    {
-       for ( o in objects) {
-        rotateY3D(0.005,objects[o].nodes);
-      }
-    }
+
     ///rotateY3D(0.005);
     pop();
 };
@@ -193,7 +188,7 @@ var rotateZ3D = function(theta, nodes) {
         x = nodes[i][0];
         y = nodes[i][1];
         z = nodes[i][2];
-        nodes[i] = [x * cosTheta - y * sinTheta ,  y * cosTheta + x * sinTheta, z];
+        nodes[i] = [x * ct - y * st ,  y * ct + x * st, z];
     }
 
 };
@@ -228,3 +223,9 @@ var rotateY3D = function(theta,nodes) {
     }
 
 };
+
+function deviceTurned() {
+  var rotationX = pAccelerationX;
+  var rotationY = pAccelerationY;
+  var rotationZ = pAccelerationZ;
+}
