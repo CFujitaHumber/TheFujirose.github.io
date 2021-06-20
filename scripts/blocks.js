@@ -6,9 +6,9 @@ var objects;
 var box1, box2, box3;
 let nodeSize = 8;
 
-var rotationX = 0.03;
-var rotationY = 0.03;
-var rotationZ = 0.03;
+var rotationX = 0.003;
+var rotationY = 0.003;
+var rotationZ = 0.003;
 
 
 function setup() {
