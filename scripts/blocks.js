@@ -83,7 +83,7 @@ draw = function() {
 
     for ( o in objects)
     {
-      rotateX3D(rotationX,objects[o].nodes);
+      rotateX3D(rotationX + pAccelerationX/100,objects[o].nodes);
       rotateY3D(rotationY,objects[o].nodes);
       rotateZ3D(rotationZ,objects[o].nodes);
     }
@@ -223,9 +223,3 @@ var rotateY3D = function(theta,nodes) {
     }
 
 };
-
-function deviceTurned() {
-  var rotationX = pAccelerationX/100;
-  var rotationY = pAccelerationY/100;
-  var rotationZ = pAccelerationZ/100;
-}
