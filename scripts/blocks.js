@@ -92,7 +92,7 @@ draw = function() {
 
     for ( o in objects)
     {
-      rotateX3D(bRotationX + rotationX,objects[o].nodes);
+      rotateX3D(bRotationX + rotationX/100,objects[o].nodes);
       rotateY3D(bRotationY,objects[o].nodes);
       rotateZ3D(bRotationZ,objects[o].nodes);
     }
