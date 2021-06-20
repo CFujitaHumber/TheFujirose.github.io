@@ -1,6 +1,5 @@
 var BLACK;
-var faceColor;
-var lightVector;
+
 var backgroundLight;
 var objects;
 var box1, box2, box3;
@@ -13,17 +12,22 @@ var bRotationZ = 0.003;
 
 function setup() {
   BLACK = color(0, 0, 0);
-  faceColor = color(47, 19, 22);
-  lightVector =[0.5, -0.2, -2];
+  faceColor = color(88, 23, 33);
   backgroundLight = 0.1;
 
   backgroundColor = color(255, 255, 255);
-  box1 = createCuboid(-100, -100, -100, 200, 200, 200);
-  box2 = createCuboid(-400, -400, -400, 200, 200, 200);
-  box3 = createCuboid(-200, -200, -200, 200, 200, 200);
-  objects = [box1]
-  lightVector = normaliseVector(lightVector);
+  box1 = createCuboid(-100, -100, -100, 200, 200, 200, color(88, 23, 33));
+  box2 = createCuboid(-40, -40, -40, 20, 20, 20, color(55, 53, 0));
+  box3 = createCuboid(-20, -100, -140, 20, 20, 20, color(255, 5, 5));
+  objects = [box1,box2, box3]
   //translate3D(250,250,0, nodes);
+  for (var o in objects)
+  {
+    var obj = objects[o];
+    obj.lightVector = normaliseVector(obj.lightVector);
+  }
+
+
   background(backgroundColor);
   let myCanvas = createCanvas(500, 500);
   myCanvas.parent('sketch-holder');
@@ -38,6 +42,11 @@ var face;
 draw = function() {
   clear();
   push();
+
+
+
+
+
     translate(200,200);
     for (var o in objects) {
         var obj = objects[o];
@@ -59,9 +68,9 @@ draw = function() {
                 var fnorm = normalOfPlane(face, nodes);
 
                 if (fnorm[2] < 0) {
-                    var l = max(0, dotProduct(lightVector, normaliseVector(fnorm)));
+                    var l = max(0, dotProduct(obj.lightVector, normaliseVector(fnorm)));
                     l = backgroundLight + (1 - backgroundLight) * l;
-                    var c = lerpColor(BLACK, faceColor, l);
+                    var c = lerpColor(BLACK, obj.faceColor, l);
                     fill(c);
 
                     if (face.length === 3) {
@@ -93,7 +102,7 @@ draw = function() {
 };
 
 mouseDragged = function() {
-    for ( o in objects)
+    for (var o in objects)
     {
       rotateY3D((mouseX - pmouseX)/100,objects[o].nodes);
     rotateX3D((mouseY - pmouseY)/100,objects[o].nodes);
@@ -125,7 +134,7 @@ var getLength = function(x0, y0, x1,y1)
 };
 
 
-var createCuboid = function(x, y, z, w, h, d) {
+var createCuboid = function(x, y, z, w, h, d, c) {
     var nodes = [[x,     y,     z], [x,     y,     z + d],
                  [x,     y + h, z], [x,     y + h, z + d],
                  [x + w, y,     z], [x + w, y,     z + d],
@@ -134,7 +143,13 @@ var createCuboid = function(x, y, z, w, h, d) {
     var faces= [[0, 1, 3, 2], [1, 0, 4, 5],
                 [0, 2, 6, 4], [3, 1, 5, 7],
                 [5, 4, 6, 7], [2, 3, 7, 6]];
-    return { 'nodes': nodes, 'faces': faces };
+
+
+    var faceColor = c;
+
+    var lightVector = [0.5, -0.2, -2];
+
+    return { 'nodes': nodes, 'faces': faces , 'faceColor': faceColor, 'lightVector': lightVector};
 };
 
 
