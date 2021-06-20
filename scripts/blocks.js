@@ -83,9 +83,9 @@ draw = function() {
 
     for ( o in objects)
     {
-      rotateX3D(brotationX + rotationX,objects[o].nodes);
-      rotateY3D(brotationY,objects[o].nodes);
-      rotateZ3D(brotationZ,objects[o].nodes);
+      rotateX3D(bRotationX + rotationX,objects[o].nodes);
+      rotateY3D(bRotationY,objects[o].nodes);
+      rotateZ3D(bRotationZ,objects[o].nodes);
     }
 
     ///rotateY3D(0.005);
