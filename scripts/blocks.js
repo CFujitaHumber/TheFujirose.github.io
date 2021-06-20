@@ -225,7 +225,7 @@ var rotateY3D = function(theta,nodes) {
 };
 
 function deviceTurned() {
-  var rotationX = rotationX/1000;
-  var rotationY = rotationY/1000;
-  var rotationZ = rotationZ/1000;
+  var rotationX = pAccelerationX/100;
+  var rotationY = pAccelerationY/100;
+  var rotationZ = pAccelerationZ/100;
 }
