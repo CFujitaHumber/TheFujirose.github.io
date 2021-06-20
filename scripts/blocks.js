@@ -3,26 +3,29 @@ var faceColor;
 var lightVector;
 var backgroundLight;
 var objects;
-var box1;
+var box1, box2, box3;
 let nodeSize = 8;
 
 
 
 function setup() {
-  BLACK = color(79, 23, 23);
-  faceColor = color(220, 61, 61);
+  BLACK = color(0, 0, 0);
+  faceColor = color(80, 80, 250);
   lightVector =[0.5, -0.2, -2];
   backgroundLight = 0.1;
 
   backgroundColor = color(255, 255, 255);
-  box1 = createCuboid(-100, -100, -100, 100, 100, 100);
-  //box2 = createCuboid(-400, -400, -400, 200, 200, 200);
-  //box3 = createCuboid(-200, -200, -200, 200, 200, 200);
+  box1 = createCuboid(-100, -100, -100, 200, 200, 200);
+  box2 = createCuboid(-400, -400, -400, 200, 200, 200);
+  box3 = createCuboid(-200, -200, -200, 200, 200, 200);
   objects = [box1]
   lightVector = normaliseVector(lightVector);
   //translate3D(250,250,0, nodes);
+  let myCanvas = createCanvas(500, 500);
+  myCanvas.parent('sketch-holder');
+
   background(backgroundColor);
-  createCanvas(windowWidth, windowHeight);
+
 
 
 }
@@ -30,13 +33,11 @@ function setup() {
 
 var i;
 var face;
-var x = 0;
-var y = 0;
 
 draw = function() {
   clear();
   push();
-
+    translate(200,200);
     for (var o in objects) {
         var obj = objects[o];
         nodes = obj.nodes;
@@ -75,23 +76,6 @@ draw = function() {
                 }
             }
         }
-
-    }
-
-
-    for ( o in objects)
-    {
-      translate3D(x,y,0,objects[o].nodes);
-      y+=0.01;
-      x+=0.01;
-      if(x > 500)
-      {
-        translate3D(-500,0,0,objects[o].nodes);
-      }
-      if(y > 500)
-      {
-        translate3D(0,-500,0,objects[o].nodes);
-      }
 
     }
 
@@ -209,7 +193,7 @@ var rotateZ3D = function(theta, nodes) {
         x = nodes[i][0];
         y = nodes[i][1];
         z = nodes[i][2];
-        nodes[i] = [x * ct - y * st ,  y * ct + x * st, z];
+        nodes[i] = [x * cosTheta - y * sinTheta ,  y * cosTheta + x * sinTheta, z];
     }
 
 };

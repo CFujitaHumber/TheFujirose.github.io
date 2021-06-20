@@ -56,7 +56,7 @@ function setup() {
   rotateY3D(60);
   rotateX3D(60);
   background(backgroundColor);
-  createCanvas(500, 500);
+  createCanvas(300, 300);
 
 }
 
