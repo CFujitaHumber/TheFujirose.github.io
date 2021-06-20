@@ -6,14 +6,14 @@ var objects;
 var box1, box2, box3;
 let nodeSize = 8;
 
-var rotationX = 0.003;
-var rotationY = 0.003;
-var rotationZ = 0.003;
+var bRotationX = 0.003;
+var bRotationY = 0.003;
+var bRotationZ = 0.003;
 
 
 function setup() {
   BLACK = color(0, 0, 0);
-  faceColor = color(80, 80, 250);
+  faceColor = color(47, 19, 22);
   lightVector =[0.5, -0.2, -2];
   backgroundLight = 0.1;
 
@@ -83,9 +83,9 @@ draw = function() {
 
     for ( o in objects)
     {
-      rotateX3D(rotationX + rotationX,objects[o].nodes);
-      rotateY3D(rotationY,objects[o].nodes);
-      rotateZ3D(rotationZ,objects[o].nodes);
+      rotateX3D(brotationX + rotationX,objects[o].nodes);
+      rotateY3D(brotationY,objects[o].nodes);
+      rotateZ3D(brotationZ,objects[o].nodes);
     }
 
     ///rotateY3D(0.005);
