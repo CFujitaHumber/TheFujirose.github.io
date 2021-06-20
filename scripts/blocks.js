@@ -17,7 +17,7 @@ function setup() {
 
   backgroundColor = color(255, 255, 255);
   box1 = createCuboid(-100, -100, -100, 200, 200, 200, color(88, 23, 33));
-  box2 = createCuboid(-40, -40, -40, 20, 20, 20, color(55, 53, 0));
+  box2 = createCuboid(-40, -40, -40, 20, 20, 20, color(153, 126, 237));
   box3 = createCuboid(-20, -100, -140, 20, 20, 20, color(255, 5, 5));
   objects = [box1,box2, box3]
   //translate3D(250,250,0, nodes);
@@ -92,7 +92,7 @@ draw = function() {
 
     for ( o in objects)
     {
-      rotateX3D(bRotationX + rotationX/100,objects[o].nodes);
+      rotateX3D(bRotationX + rotationX/1000,objects[o].nodes);
       rotateY3D(bRotationY,objects[o].nodes);
       rotateZ3D(bRotationZ,objects[o].nodes);
     }
