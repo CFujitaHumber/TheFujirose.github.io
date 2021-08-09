@@ -38,7 +38,7 @@ function setup()
   cube1 = createCuboid
   (
    -100, -100, -100, //Position
-    200,  200,  200, //Size
+    100,  100,  100, //Size
     color(88, 23, 33) // Face Color
   );
 
@@ -70,7 +70,7 @@ function setup()
 
 
   background(backgroundColor);
-  let myCanvas = createCanvas(500, 500);
+  let myCanvas = createCanvas(400, 400);
   myCanvas.parent('sketch-holder');
 
 
@@ -88,7 +88,7 @@ draw = function()
 
   for (let o in objects)
   {
-    rotateX3D(bRotationX + rotationX/1200,objects[o].nodes);
+    rotateX3D(bRotationX + 0.003 - rotationX/1200,objects[o].nodes);
     rotateY3D(bRotationY + rotationY/1200,objects[o].nodes);
     rotateZ3D(bRotationZ + rotationZ/1200,objects[o].nodes);
   }
